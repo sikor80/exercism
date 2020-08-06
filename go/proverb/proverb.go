@@ -19,7 +19,7 @@ func Proverb(rhyme []string) []string {
 	case 1:
 		proverb = []string{fmt.Sprintf(lastLine, rhyme[0])}
 	default:
-		// Thanks to range rhyme[:length-1] don't use the last word as rhyme[i].
+		// Thanks to range rhyme[:length-1] we don't use the last word as rhyme[i].
 		for i := range rhyme[:length-1] {
 			proverb = append(proverb, fmt.Sprintf(line, rhyme[i], rhyme[i+1]))
 		}

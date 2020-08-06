@@ -5,12 +5,15 @@ import "errors"
 
 // Distance calculates the Hamming Distance from two strings.
 func Distance(a, b string) (distance int, err error) {
-	if len(a) != len(b) {
-		return -1, errors.New("strings must have equal length")
+	aRune := []rune(a)
+	bRune := []rune(b)
+
+	if len(aRune) != len(bRune) {
+		return 0, errors.New("strings must have equal length")
 	}
 
-	for i := range a {
-		if a[i] != b[i] {
+	for i := range aRune {
+		if aRune[i] != bRune[i] {
 			distance++
 		}
 	}
