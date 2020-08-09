@@ -3,7 +3,7 @@ package scrabble
 
 import "strings"
 
-// Score compute the Scrabble score for a provided word.
+// Score computes the Scrabble score for a provided word.
 func Score(str string) int {
 	var result int
 	for _, r := range str {
@@ -24,9 +24,7 @@ func Score(str string) int {
 			result = result + 10
 		default:
 			result = result + 0
-
 		}
-
 	}
 
 	return result
