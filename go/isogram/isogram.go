@@ -1,22 +1,20 @@
 // Package isogram is a solution to exercism.io exercise titled Isogram.
 package isogram
 
-import "strings"
+import "unicode"
 
 // IsIsogram determines if a word or phrase is an isogram.
 func IsIsogram(str string) bool {
 	set := make(map[rune]bool)
-	// Not sure why it doesn't work with the following?
-	// var set map[rune]bool
 
-	for _, rune := range strings.ToLower(str) {
-		if rune == '-' || rune == ' ' {
+	for _, r := range str {
+		if r == '-' || r == ' ' {
 			continue
 		}
-		if _, ok := set[rune]; ok {
+		if set[unicode.ToLower(r)] {
 			return false
 		}
-		set[rune] = true
+		set[unicode.ToLower(r)] = true
 	}
 	return true
 }
